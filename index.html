@@ -10,13 +10,13 @@
 body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,rgb(255, 0, 0),rgb(230,69,96),rgb(128,0,100),rgb(76,1,99));
+  background:linear-gradient(135deg,rgb(255,0,0),rgb(230,69,96),rgb(128,0,100),rgb(76,1,99));
   color:#fff;
   text-align:center;
   overflow-x:hidden;
 }
 
-/* ================= COUNTDOWN ================= */
+/* COUNTDOWN */
 #countdown{
   position:fixed;
   inset:0;
@@ -29,10 +29,10 @@ body{
   z-index:9999;
 }
 .glow{
-  text-shadow:0 0 20px rgb(245, 226, 61),0 0 40px rgb(230,69,96);
+  text-shadow:0 0 20px rgb(245,226,61),0 0 40px rgb(230,69,96);
 }
 
-/* ================= FIREWORKS ================= */
+/* FIREWORKS */
 canvas{
   position:fixed;
   top:0;
@@ -41,7 +41,7 @@ canvas{
   z-index:5;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{
   min-height:100vh;
   display:none;
@@ -52,6 +52,7 @@ section{
   z-index:10;
   position:relative;
 }
+
 h1{font-size:3rem;}
 h2{font-size:2rem;}
 p{max-width:750px;font-size:1.2rem;line-height:1.7;}
@@ -59,17 +60,17 @@ p{max-width:750px;font-size:1.2rem;line-height:1.7;}
 .btn{
   margin-top:30px;
   padding:15px 35px;
-  font-size: 1rem;
+  font-size:1rem;
   border:none;
   border-radius:30px;
   background:#ff2d55;
   color:#fff;
   cursor:pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition:.2s;
 }
-.btn:hover{background:#8f0000; transform: scale(1.05);}
+.btn:hover{background:#8f0000;transform:scale(1.05);}
 
-/* hearts */
+/* HEART FLOAT */
 .heart{
   position:fixed;
   bottom:-20px;
@@ -81,19 +82,85 @@ p{max-width:750px;font-size:1.2rem;line-height:1.7;}
   to{transform:translateY(-120vh) scale(1.6);opacity:0;}
 }
 
-/* gallery */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:15px;
-  margin-top: 30px;
-  width: 100%;
+  margin-top:30px;
+  width:100%;
   max-width:900px;
 }
 .gallery img{
   width:100%;
   border-radius:20px;
   box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/* ===== ENVELOPE ===== */
+.envelope{
+  position:relative;
+  width:320px;
+  height:200px;
+  margin-top:30px;
+}
+.envelope-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#c0392b;
+  border-radius:10px;
+}
+.envelope-front{
+  position:absolute;
+  width:0;
+  height:0;
+  border-left:160px solid transparent;
+  border-right:160px solid transparent;
+  border-top:100px solid #e74c3c;
+  bottom:0;
+}
+
+/* HEART BUTTON */
+.heart-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:red;
+  color:white;
+  border:none;
+  padding:18px 28px;
+  font-size:1.1rem;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,0,0,.9);
+}
+.heart-btn:hover{
+  transform:translate(-50%,-50%) scale(1.1);
+}
+
+/* LETTER */
+.letter{
+  display:none;
+  background:white;
+  color:#333;
+  max-width:700px;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  margin-top:30px;
+  animation:pop .6s ease;
+}
+.letter p{
+  font-size:1.15rem;
+  line-height:1.8;
+  white-space:pre-line;
+}
+
+@keyframes pop{
+  from{transform:scale(.7);opacity:0;}
+  to{transform:scale(1);opacity:1;}
 }
 
 footer{padding:20px;opacity:.8}
@@ -105,69 +172,78 @@ footer{padding:20px;opacity:.8}
 <div id="countdown" class="glow">3</div>
 <canvas id="fireworks"></canvas>
 
-<audio autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- SECTION 1 -->
 <section id="s1">
-  <h1 class="glow">🎂Happy Birthday🎂</h1>
-<h2 class="glow">❤️ Tasfia Jannat Adiba ❤️</h2>
-  <p class="glow">✨💖Many Many Happy Returns of the Day💖✨</p>
-  <button class="btn" onclick="go('s2')">Start the Surprise✨</button>
+  <h1 class="glow">🎂 Happy Birthday 🎂</h1>
+  <h2 class="glow">❤️ Tasfia Jannat Adiba ❤️</h2>
+  <p class="glow">✨💖 Many Many Happy Returns of the Day 💖✨</p>
+  <button class="btn" onclick="playMusic(); go('s2')">Start the Surprise ✨</button>
 </section>
 
-<!-- SECTION 2 -->
+<!-- SECTION 2 (ENVELOPE) -->
 <section id="s2">
-<h1 class="glow">💌A Message For You💌</h1>
-<p class="glow">✨Happy Birthday, my heart. You are the most beautiful part of my life—the reason my smiles feel fuller and my days feel warmer. Loving you has changed me in ways I never knew were possible. Your touch calms my storms, your voice feels like home, and your love gives my world meaning. Every moment with you is a gift I never take for granted. I thank destiny every day for choosing us. May this year wrap you in happiness, fulfill your dreams, and remind you how deeply, endlessly, and unconditionally you are loved—today, always, and forever✨</p>
-<button class="btn" onclick="go('s3')">See Your Beauty📸</button>
+  <h1 class="glow">💌 A Message For You 💌</h1>
+
+  <div class="envelope" id="envelope">
+    <div class="envelope-back"></div>
+    <div class="envelope-front"></div>
+    <button class="heart-btn" onclick="openLetter()">❤️ OPEN</button>
+  </div>
+
+  <div class="letter" id="letter">
+    <p>
+Happy Birthday, my heart 💖  
+You are the most beautiful part of my life.  
+Your smile makes my days brighter and your love feels like home.
+
+Every moment with you is a blessing I never take for granted.  
+May Allah fill your life with happiness, peace, success and endless love.  
+Today and always, remember how deeply you are loved.
+    </p>
+    <button class="btn" onclick="go('s3')">See Your Beauty 📸</button>
+  </div>
 </section>
 
 <!-- SECTION 3 -->
 <section id="s3">
-<h1 class="glow">Your Beauty📸😘</h1>
-<p class="glow">Those are my another source of happiness🎀</p>
-<div class="gallery">
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
-</div>
-<button class="btn" onclick="go('s4')">One Last Thing💖</button>
+  <h1 class="glow">Your Beauty 📸😘</h1>
+  <p class="glow">Those are my another source of happiness 🎀</p>
+  <div class="gallery">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+  </div>
+  <button class="btn" onclick="go('s4')">One Last Thing 💖</button>
 </section>
 
 <!-- SECTION 4 -->
 <section id="s4">
-<h1 class="glow">🌸Final Words🌸</h1>
-<p class="glow">✨ You're not just my bestie, you're my happiness. May Allah shower you with endless mercy, good health, strong faith, and success in both worlds. May your life be filled with peace, barakah, and happiness always. Ameen. ✨</p>
-<h2 class="glow">Happy Birthday Once Again 🥰</h2>
-<h3 class="glow">Let Me know If you liked it!</h3>
-<button class="btn" onclick="go('s5')">I liked it</button>
-<button class="btn" onclick="go('s6')">I didn't like it</button>
+  <h1 class="glow">🌸 Final Words 🌸</h1>
+  <p class="glow">✨ May Allah bless you with good health, strong faith, peace and success in both worlds. Ameen ✨</p>
+  <h2 class="glow">Happy Birthday Once Again 🥰</h2>
+  <button class="btn" onclick="go('s5')">I liked it</button>
+  <button class="btn" onclick="go('s6')">I didn't like it</button>
 </section>
 
-<!--SECTION 5-->
-<section id="s5">
-  <h1 class="glow">Thank You So Much!🥰</h1>
-</section>
+<section id="s5"><h1 class="glow">Thank You So Much 🥰</h1></section>
+<section id="s6"><h1>I'm sorry 😔 I’ll do better next time</h1></section>
 
-<!--SECTION 6-->
-<section id="s6">
-  <h1>Okh I'm Sorry, Next time I will do something better. Plz don't mind!</h1>
-</section>
 <footer class="glow">Made by <b>Abdullah Al Rahat</b></footer>
 
 <script>
-/* ===== countdown ===== */
 let c=3;
 const cd=document.getElementById("countdown");
 const s1=document.getElementById("s1");
 
 const timer=setInterval(()=>{
   c--;
-  if(c>=0) cd.innerText=c;
-  if(c<0){
+  if(c>0){cd.innerText=c;}
+  else{
     clearInterval(timer);
     cd.style.display="none";
     s1.style.display="flex";
@@ -175,71 +251,62 @@ const timer=setInterval(()=>{
   }
 },1000);
 
-/* ===== navigation ===== */
+function playMusic(){
+  document.getElementById("bgMusic").play();
+}
+
 function go(id){
   document.querySelectorAll("section").forEach(s=>s.style.display="none");
   document.getElementById(id).style.display="flex";
 }
 
-/* ===== hearts ===== */
+function openLetter(){
+  document.getElementById("envelope").style.display="none";
+  document.getElementById("letter").style.display="block";
+}
+
+/* hearts */
 setInterval(()=>{
   const h=document.createElement("div");
   h.className="heart";
-  h.innerText="❤️🤍";
+  const arr=["❤️","💖","💘","🤍"];
+  h.innerText=arr[Math.floor(Math.random()*arr.length)];
   h.style.left=Math.random()*100+"vw";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),6000);
-},250);
+},300);
 
-/* ===== fireworks ===== */
+/* fireworks */
 const canvas=document.getElementById("fireworks");
 const ctx=canvas.getContext("2d");
 resize();
 window.onresize=resize;
-function resize(){
-  canvas.width=innerWidth;
-  canvas.height=innerHeight;
-}
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
 
 let particles=[];
 function firework(x,y,big=false){
-  for(let i=0;i<(big?200:50);i++){
-    particles.push({
-      x,y,
-      vx:(Math.random()-0.5)*(big?8:4),
-      vy:(Math.random()-0.5)*(big?8:4),
-      life:300
-    });
+  const count=big?150:40;
+  for(let i=0;i<count;i++){
+    particles.push({x,y,vx:(Math.random()-0.5)*6,vy:(Math.random()-0.5)*6,life:120});
   }
 }
-
-function bigBoom(){
-  firework(innerWidth/2,innerHeight/3,true);
-}
+function bigBoom(){firework(innerWidth/2,innerHeight/3,true);}
 
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach((p,i)=>{
-    p.x+=p.vx;
-    p.y+=p.vy;
-    p.life--;
-    ctx.fillStyle=`rgba(255,200,255,${p.life/100})`;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,2,0,Math.PI*2);
-    ctx.fill();
+  for(let i=particles.length-1;i>=0;i--){
+    const p=particles[i];
+    p.x+=p.vx; p.y+=p.vy; p.life--;
+    ctx.fillStyle=`rgba(255,200,255,${p.life/120})`;
+    ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fill();
     if(p.life<=0)particles.splice(i,1);
-  });
+  }
   requestAnimationFrame(animate);
 }
 animate();
 
-/* small fireworks top */
-setInterval(()=>{
-  firework(Math.random()*innerWidth,Math.random()*200);
-},800);
+setInterval(()=>{firework(Math.random()*innerWidth,Math.random()*200);},900);
 </script>
 
 </body>
 </html>
-© 2026 Abdullah Al Rahat | All rights reserved
-<hr>
