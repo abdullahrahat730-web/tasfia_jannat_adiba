@@ -279,10 +279,10 @@ setInterval(()=>{
   h.className="heart";
   const arr=["❤️","💖","💘","🤍"];
   h.innerText=arr[Math.floor(Math.random()*arr.length)];
-  h.style.left=Math.random()*100+"vw";
+  h.style.left=Math.random()*300+"vw";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-},300);
+  setTimeout(()=>h.remove(),12000);
+},75);
 
 /* fireworks */
 const canvas=document.getElementById("fireworks");
@@ -318,4 +318,5 @@ setInterval(()=>{firework(Math.random()*innerWidth,Math.random()*200);},900);
 
 </body>
 </html>
+
 
