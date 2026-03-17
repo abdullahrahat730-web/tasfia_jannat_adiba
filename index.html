@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,50 +8,52 @@
 
 <style>
 *{box-sizing:border-box;}
+
 body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,rgb(255,0,0),rgb(230,69,96),rgb(128,0,100),rgb(76,1,99));
-  color:#fff;
-  text-align:center;
-  overflow-x:hidden;
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff0000,#e64560,#800064,#4c0163);
+color:#fff;
+text-align:center;
+overflow-x:hidden;
 }
 
 /* COUNTDOWN */
 #countdown{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:8rem;
-  font-weight:bold;
-  background:#000;
-  z-index:9999;
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:8rem;
+font-weight:bold;
+background:#000;
+z-index:9999;
 }
+
 .glow{
-  text-shadow:0 0 20px rgb(245,226,61),0 0 40px rgb(230,69,96);
+text-shadow:0 0 20px rgb(245,226,61),0 0 40px rgb(230,69,96);
 }
 
 /* FIREWORKS */
 canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  pointer-events:none;
-  z-index:5;
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+z-index:5;
 }
 
 /* SECTIONS */
 section{
-  min-height:100vh;
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:40px 20px;
-  z-index:10;
-  position:relative;
+min-height:100vh;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+position:relative;
+z-index:10;
 }
 
 h1{font-size:3rem;}
@@ -58,112 +61,132 @@ h2{font-size:2rem;}
 p{max-width:750px;font-size:1.2rem;line-height:1.7;}
 
 .btn{
-  margin-top:30px;
-  padding:15px 35px;
-  font-size:1rem;
-  border:none;
-  border-radius:30px;
-  background:#ff2d55;
-  color:#fff;
-  cursor:pointer;
-  transition:.2s;
+margin-top:30px;
+padding:15px 35px;
+font-size:1rem;
+border:none;
+border-radius:30px;
+background:#ff2d55;
+color:#fff;
+cursor:pointer;
+transition:.2s;
 }
-.btn:hover{background:#8f0000;transform:scale(1.05);}
+
+.btn:hover{
+background:#8f0000;
+transform:scale(1.05);
+}
 
 /* HEART FLOAT */
 .heart{
-  position:fixed;
-  bottom:-20px;
-  font-size:22px;
-  animation:floatUp 6s linear infinite;
-  opacity:.8;
+position:fixed;
+bottom:-20px;
+font-size:22px;
+animation:floatUp 6s linear infinite;
+opacity:.8;
 }
+
 @keyframes floatUp{
-  to{transform:translateY(-120vh) scale(1.6);opacity:0;}
+to{transform:translateY(-120vh) scale(1.6);opacity:0;}
 }
 
 /* GALLERY */
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-  margin-top:30px;
-  width:100%;
-  max-width:900px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:30px;
+width:100%;
+max-width:900px;
 }
+
 .gallery img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+transition:.4s;
+opacity:.4;
 }
 
-/* ===== ENVELOPE ===== */
+.gallery img:hover{
+transform:scale(1.08);
+opacity:1;
+}
+
+/* ENVELOPE */
 .envelope{
-  position:relative;
-  width:320px;
-  height:200px;
-  margin-top:30px;
-}
-.envelope-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:#c0392b;
-  border-radius:10px;
-}
-.envelope-front{
-  position:absolute;
-  width:0;
-  height:0;
-  border-left:160px solid transparent;
-  border-right:160px solid transparent;
-  border-top:100px solid #e74c3c;
-  bottom:0;
+position:relative;
+width:320px;
+height:200px;
+margin-top:30px;
 }
 
-/* HEART BUTTON */
-.heart-btn{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:red;
-  color:white;
-  border:none;
-  padding:18px 28px;
-  font-size:1.1rem;
-  border-radius:50px;
-  cursor:pointer;
-  box-shadow:0 0 20px rgba(255,0,0,.9);
+.envelope-back{
+position:absolute;
+width:100%;
+height:100%;
+background:#c0392b;
+border-radius:10px;
 }
-.heart-btn:hover{
-  transform:translate(-50%,-50%) scale(1.1);
+
+.envelope-front{
+position:absolute;
+width:0;
+height:0;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:100px solid #e74c3c;
+bottom:0;
+}
+
+.heart-btn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:red;
+color:white;
+border:none;
+padding:18px 28px;
+font-size:1.1rem;
+border-radius:50px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,0,0,.9);
 }
 
 /* LETTER */
 .letter{
-  display:none;
-  background:white;
-  color:#333;
-  max-width:700px;
-  padding:40px;
-  border-radius:12px;
-  box-shadow:0 20px 40px rgba(0,0,0,.5);
-  margin-top:30px;
-  animation:pop .6s ease;
-}
-.letter p{
-  font-size:1.15rem;
-  line-height:1.8;
-  white-space:pre-line;
+display:none;
+background:white;
+color:#333;
+max-width:700px;
+padding:40px;
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,.5);
+margin-top:30px;
 }
 
-@keyframes pop{
-  from{transform:scale(.7);opacity:0;}
-  to{transform:scale(1);opacity:1;}
+.letter p{
+font-size:1.15rem;
+line-height:1.8;
+white-space:pre-line;
+text-align:left;
+}
+
+/* CAKE */
+.cake{
+font-size:80px;
+margin:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+.cake:hover{
+transform:scale(1.2) rotate(10deg);
 }
 
 footer{padding:20px;opacity:.8}
+
 </style>
 </head>
 
@@ -173,152 +196,296 @@ footer{padding:20px;opacity:.8}
 <canvas id="fireworks"></canvas>
 
 <audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- SECTION 1 -->
 <section id="s1">
-  <h1 class="glow">🎂 Happy Birthday 🎂</h1>
-  <h2 class="glow">❤️ Tasfia Jannat Adiba ❤️</h2>
-  <p class="glow">✨💖 Many Many Happy Returns of the Day 💖✨</p>
-  <button class="btn" onclick="playMusic(); go('s2')">Start the Surprise ✨</button>
+<h1 class="glow">🎂 Happy Birthday 🎂</h1>
+<h2 class="glow">❤️ Tasfia Jannat Adiba ❤️</h2>
+<p class="glow">✨💖 Many Many Happy Returns of the Day 💖✨</p>
+<button class="btn" onclick="playMusic(); go('s2')">Start the Surprise ✨</button>
 </section>
 
-<!-- SECTION 2 (ENVELOPE) -->
+<!-- SECTION 2 -->
 <section id="s2">
-  <h1 class="glow">💌 A Message For You 💌</h1>
+<h1 class="glow">💌 A Message For You 💌</h1>
 
-  <div class="envelope" id="envelope">
-    <div class="envelope-back"></div>
-    <div class="envelope-front"></div>
-    <button class="heart-btn" onclick="openLetter()">❤️ OPEN</button>
-  </div>
+<div class="envelope" id="envelope">
+<div class="envelope-back"></div>
+<div class="envelope-front"></div>
+<button class="heart-btn" onclick="openLetter()">❤️ OPEN</button>
+</div>
 
-  <div class="letter" id="letter">
-    <p>
-Dear Bestie,
+<div class="letter" id="letter">
+<p id="typedLetter"></p>
+<button class="btn" onclick="go('s3')">See Your Beauty 📸</button>
+</div>
 
-Happy Birthday to the one person who makes my life brighter just by being in it 💖
-I honestly don’t know how I got so lucky to have you as my best friend, but I’m grateful for you every single day.
-
-Thank you for all the laughs that turned into memories, the late-night talks that healed me, and the way you always understand me without needing explanations. You’ve seen me at my best and my worst, and you’ve loved me through all of it — that’s something truly special.
-
-You are strong, kind, beautiful inside and out, and you deserve every good thing this world has to offer. I hope this year brings you happiness that makes your heart full, dreams that come true, and moments that remind you how amazing you are.
-
-No matter where life takes us, know that I’ll always be right here — cheering for you, protecting you, and loving you endlessly. Thank you for being you and for being my person.
-
-Have the happiest birthday ever. You mean more to me than words can say 🎉💫
-
-With all my love,
-Rahat
-    </p>
-    <button class="btn" onclick="go('s3')">See Your Beauty 📸</button>
-  </div>
 </section>
 
 <!-- SECTION 3 -->
 <section id="s3">
-  <h1 class="glow">Your Beauty 📸😘</h1>
-  <p class="glow">Those are my another source of happiness 🎀</p>
-  <div class="gallery">
-    <img src="img1.jpg">
-    <img src="img2.jpg">
-    <img src="img3.jpg">
-    <img src="img4.jpg">
-  </div>
-  <button class="btn" onclick="go('s4')">One Last Thing 💖</button>
+<h1 class="glow">Your Beauty 📸😘</h1>
+<p class="glow">Those are my another source of happiness 🎀</p>
+
+<div class="gallery">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+</div>
+
+<button class="btn" onclick="go('s4')">One Last Thing 💖</button>
 </section>
 
 <!-- SECTION 4 -->
 <section id="s4">
-  <h1 class="glow">🌸 Final Words 🌸</h1>
-  <p class="glow">✨ May Allah bless you with good health, strong faith, peace and success in both worlds. Ameen ✨</p>
-  <h2 class="glow">Happy Birthday Once Again 🥰</h2>
-  <button class="btn" onclick="go('s5')">I liked it</button>
-  <button class="btn" onclick="go('s6')">I didn't like it</button>
+
+<h1 class="glow">🌸 Final Words 🌸</h1>
+
+<div class="cake">🎂</div>
+
+<p class="glow">
+✨ May Allah bless you with good health, strong faith, peace and success in both worlds. Ameen ✨
+</p>
+
+<h2 class="glow">Happy Birthday Once Again 🥰</h2>
+
+<button class="btn" onclick="go('s5')">I liked it</button>
+<button class="btn" onclick="go('s6')">I didn't like it</button>
+
 </section>
 
-<section id="s5"><h1 class="glow">Thank You So Much 🥰</h1></section>
-<section id="s6"><h1>I'm sorry 😔 I’ll do better next time</h1></section>
+<section id="s5">
+<h1 class="glow">Thank You So Much 🥰</h1>
+</section>
+
+<section id="s6">
+<h1>I'm sorry 😔 I’ll do better next time</h1>
+</section>
 
 <footer class="glow">Made by <b>Abdullah Al Rahat</b></footer>
 
 <script>
-let c=3;
-const cd=document.getElementById("countdown");
-const s1=document.getElementById("s1");
+
+/* COUNTDOWN */
+
+let c=3
+const cd=document.getElementById("countdown")
+const s1=document.getElementById("s1")
 
 const timer=setInterval(()=>{
-  c--;
-  if(c>0){cd.innerText=c;}
-  else{
-    clearInterval(timer);
-    cd.style.display="none";
-    s1.style.display="flex";
-    bigBoom();
-  }
-},1000);
+
+c--
+
+if(c>0){
+cd.innerText=c
+}
+
+else{
+
+clearInterval(timer)
+cd.style.display="none"
+s1.style.display="flex"
+bigBoom()
+
+}
+
+},1000)
+
+/* MUSIC */
 
 function playMusic(){
-  document.getElementById("bgMusic").play();
+document.getElementById("bgMusic").play()
 }
+
+/* PAGE CHANGE */
 
 function go(id){
-  document.querySelectorAll("section").forEach(s=>s.style.display="none");
-  document.getElementById(id).style.display="flex";
+
+document.querySelectorAll("section").forEach(s=>s.style.display="none")
+
+document.getElementById(id).style.display="flex"
+
+if(id==="s3"){
+
+for(let i=0;i<10;i++){
+
+setTimeout(()=>{
+firework(Math.random()*innerWidth,Math.random()*innerHeight,true)
+},i*300)
+
 }
+
+}
+
+}
+
+/* OPEN LETTER */
 
 function openLetter(){
-  document.getElementById("envelope").style.display="none";
-  document.getElementById("letter").style.display="block";
+
+document.getElementById("envelope").style.display="none"
+document.getElementById("letter").style.display="block"
+
+typeLetter()
+
 }
 
-/* hearts */
+/* LETTER TYPING */
+
+const letterText = `Dear Bestie,
+
+Happy Birthday to the one person who makes my life brighter just by being in it 💖
+I honestly don’t know how I got so lucky to have you as my best friend.
+
+Thank you for all the laughs that turned into memories and the late night talks.
+
+You deserve every happiness in the world.
+
+With all my love,
+Rahat`
+
+let i=0
+
+function typeLetter(){
+
+const el=document.getElementById("typedLetter")
+
+if(i<letterText.length){
+
+el.innerHTML+=letterText.charAt(i)
+
+i++
+
+setTimeout(typeLetter,35)
+
+}
+
+}
+
+/* HEARTS */
+
 setInterval(()=>{
-  const h=document.createElement("div");
-  h.className="heart";
-  const arr=["❤️","💖","💘","🤍"];
-  h.innerText=arr[Math.floor(Math.random()*arr.length)];
-  h.style.left=Math.random()*300+"vw";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),12000);
-},50);
 
-/* fireworks */
-const canvas=document.getElementById("fireworks");
-const ctx=canvas.getContext("2d");
-resize();
-window.onresize=resize;
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+const h=document.createElement("div")
 
-let particles=[];
-function firework(x,y,big=false){
-  const count=big?150:40;
-  for(let i=0;i<count;i++){
-    particles.push({x,y,vx:(Math.random()-0.5)*6,vy:(Math.random()-0.5)*6,life:120});
-  }
+h.className="heart"
+
+const arr=["❤️","💖","💘","🤍"]
+
+h.innerText=arr[Math.floor(Math.random()*arr.length)]
+
+h.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),12000)
+
+},300)
+
+/* FIREWORKS */
+
+const canvas=document.getElementById("fireworks")
+const ctx=canvas.getContext("2d")
+
+resize()
+
+window.onresize=resize
+
+function resize(){
+
+canvas.width=innerWidth
+canvas.height=innerHeight
+
 }
-function bigBoom(){firework(innerWidth/2,innerHeight/3,true);}
+
+let particles=[]
+
+function firework(x,y,big=false){
+
+const count=big?150:40
+
+for(let i=0;i<count;i++){
+
+particles.push({
+
+x,y,
+
+vx:(Math.random()-0.5)*6,
+
+vy:(Math.random()-0.5)*6,
+
+life:120
+
+})
+
+}
+
+}
+
+function bigBoom(){
+
+firework(innerWidth/2,innerHeight/3,true)
+
+}
 
 function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(let i=particles.length-1;i>=0;i--){
-    const p=particles[i];
-    p.x+=p.vx; p.y+=p.vy; p.life--;
-    ctx.fillStyle=`rgba(255,200,255,${p.life/120})`;
-    ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fill();
-    if(p.life<=0)particles.splice(i,1);
-  }
-  requestAnimationFrame(animate);
-}
-animate();
 
-setInterval(()=>{firework(Math.random()*innerWidth,Math.random()*200);},900);
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+for(let i=particles.length-1;i>=0;i--){
+
+const p=particles[i]
+
+p.x+=p.vx
+
+p.y+=p.vy
+
+p.life--
+
+ctx.fillStyle=`rgba(255,200,255,${p.life/120})`
+
+ctx.beginPath()
+
+ctx.arc(p.x,p.y,2,0,Math.PI*2)
+
+ctx.fill()
+
+if(p.life<=0)particles.splice(i,1)
+
+}
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
+setInterval(()=>{
+
+firework(Math.random()*innerWidth,Math.random()*200)
+
+},900)
+
+/* SLIDESHOW */
+
+let slide=0
+const imgs=document.querySelectorAll(".gallery img")
+
+setInterval(()=>{
+
+imgs.forEach(img=>img.style.opacity=".4")
+
+imgs[slide].style.opacity="1"
+
+slide=(slide+1)%imgs.length
+
+},2000)
+
 </script>
 
 </body>
 </html>
-©Abdullah Al Rahat|2026 All rights reserved
-
-
-
+```
